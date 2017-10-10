@@ -2,17 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shop.mappers.newone.UserMapper">
 	<sql id="queryforuser">
-		<if test="idUser!=null"><!--如果有id，就用id搜索  -->
-			id_user = #{idUser}
+		<if test="id_user!=null"><!--如果有id，就用id搜索  -->
+			id_user = #{id_user}
 		</if>
-		<if test="userName!=null">
-			and user_name = #{userName}
+		<if test="user_name!=null">
+			and user_name = #{user_name}
 		</if>
-		<if test="shopcarIdShopcar!=null">
-			and shopcar_id_shopcar = #{shopcarIdShopcar}
+		<if test="shopcar_id_shopcar!=null">
+			and shopcar_id_shopcar = #{shopcar_id_shopcar}
 		</if>
-		<if test="ordersIdOrders!=null">
-			and orders_id_orders = #{ordersIdOrders}
+		<if test="orders_id_orders!=null">
+			and orders_id_orders = #{orders_id_orders}
 		</if>
 	</sql>
 	

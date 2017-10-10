@@ -74,7 +74,7 @@
 							<li class="list-group-item">
 								<button class="menu-item-left" data-target="#">
 									<span class="glyphicon glyphicon-triangle-right"></span>
-									<a href="#">全订单列表</a>
+									<a href="<%=basepath %>order/getlist.action">全订单列表</a>
 								</button>
 							</li>
 						</ul>

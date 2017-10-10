@@ -15,6 +15,52 @@
 <link href="../../public/css/theme.css" rel="stylesheet">
 <script src="../../public/js/ie-emulation-modes-warning.js"></script>
 <link href="../../css/user_index.css" rel="stylesheet">
+<style type="text/css">
+	.left-box{
+		margin-top: 40px;
+		float: left;
+		width: 500px;
+		height: 500px;
+		margin-left: 70px;
+	}
+	.main-box{
+		height: 1080px;
+		width: 90%;
+		z-index: 1;
+	}
+	.right-box{
+		margin-top: 40px;
+		margin-left: 40px;
+		float: left;
+	}
+	.title{
+		font-size: 36px;
+		text-align: left;
+	}
+	.little_title{
+		font-size: 28px;
+		text-align: left;
+	}
+	.pri-parm-do{
+		margin-top: 35px;
+		text-align: left;
+		font-size: 20px;
+		overflow：hidden;
+	}
+
+	.ver-choose{
+		background-color: #ff211c;
+		color: white;
+	}
+	.ver{
+		float: left;
+		margin-left: 10px;
+		width: 30%;
+	}
+	.form{
+		width: 150%;
+	}
+</style>
 <title>首页</title>
 </head>
 <body class="body-fixtop">
@@ -23,8 +69,8 @@
 		<a href="#" class="nav-a">你好</a> <a href="#" class="nav-a">主页</a> <a
 			href="#" class="nav-a">我的订单</a> <a href="#" class="nav-right">个人中心</a>
 	</nav>
-	<div>
-		<div class="pull-left">
+	<div class="main-box">
+		<div  class="left-box">
 			<div id="carousel-example-generic" class="carousel slide"
 				data-ride="carousel">
 				<ol class="carousel-indicators">
@@ -35,16 +81,16 @@
 				</ol>
 				<div class="carousel-inner" role="listbox">
 					<div class="item active">
-						<img data-src="holder.js/1140x500/auto/#777:#555/text:First slide"
+						<img src="../../image/pic1.png" style="height: 500px;width: 500px"
 							alt="First slide">
 					</div>
+
 					<div class="item">
-						<img
-							data-src="holder.js/1140x500/auto/#666:#444/text:Second slide"
+						<img src="../../image/pic2.png" style="height: 500px;width: 500px"
 							alt="Second slide">
 					</div>
 					<div class="item">
-						<img data-src="holder.js/1140x500/auto/#555:#333/text:Third slide"
+						<img src="../../image/pic3.png" style="height: 500px;width: 500px"
 							alt="Third slide">
 					</div>
 				</div>
@@ -60,14 +106,26 @@
 			</div>
 		</div>
 		
-		<div class="pull-right">
-			<h3 class="title">1950X-线程撕裂者</h3>
-			<h4 class="little_title">信仰升级</h4>
+		<div align="right" class="right-box">
+			<div class="title">1950X-线程撕裂者</div>
+			<div class="little_title">信仰升级</div>
 			<div class="pri-parm-do">
-				<div class="price">价格：</div>
-				<div class="num">
-					数量:<span class="numchoose"></span>
-				</div>
+				<form class="form">
+					<div class="choice-box">
+						<div class="ver-choose">
+							<span class="glyphicon glyphicon-play"></span>
+							版本选择
+						</div>
+						<div class="ver"><input type="radio" name="version" value="1">标配版</div>
+						<div class="ver"><input type="radio" name="version" value="2">高配版</div>
+						<div class="ver"><input type="radio" name="version" value="3">尊享版</div>
+					</div>
+					<div style="clear: both"></div>
+					<div class="price">价格：</div>
+					<div class="num">
+						数量：<span class="numchoose"></span>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

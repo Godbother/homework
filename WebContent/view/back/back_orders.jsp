@@ -109,22 +109,17 @@
 					<table border="1" id="maintable">
 						<tr>
 							<th>id</th>
-							<th>商品名</th>
-							<th>商品图</th>
+							<th>下单人</th>
+							<th>总价</th>
+							<th>下单时间</th>
 							<th>操作</th>
 						</tr>
-						<c:forEach items="${goodslist }" var="item">
+						<c:forEach items="${orderlist }" var="item">
 							<tr>
-								<th>${item.id_goods }</th>
-								<th>${item.goods_name }</th>
-								<th>
-									<c:if test="${ item.goods_image!=null}">
-										是
-									</c:if>
-									<c:if test="${ item.goods_image==null}">
-										否
-									</c:if>
-								</th>
+								<th>${item.id_orders }</th>
+								<th>${item.orders_uid }</th>
+								<th>${item.orders_countprice }</th>
+								<th>${item.orders_date }</th>
 								<th><button id="info">详细</button>
 							</tr>
 						</c:forEach>
