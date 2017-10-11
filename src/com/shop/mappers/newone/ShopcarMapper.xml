@@ -6,33 +6,41 @@
 			id_shopcar = #{id_shopcar}
 		</if>
 		<if test="shopcar_uid!=null">
-			and shopcar_uid = #{shopcar_uid}
+			shopcar_uid = #{shopcar_uid}
 		</if>
-		<if test="orders_mid!=null">
-			and orders_mid = #{orders_mid}
-		</if>
-		<if test="orders_states!=null">
-			and orders_states = #{orders_states}
+		<if test="orders_id_orders!=null">
+			orders_id_orders = #{orders_id_orders}
 		</if>
 	</sql>
-	
-	<select id="findOrderByInfo" resultType="com.shop.pojo.entity.Order" parameterType="com.shop.pojo.entity.Order">
-		select * from orders
+
+	<sql id="delforshopcar">
+		<if test="id_shopcar!=null"><!--如果有id，就用id搜索  -->
+			id_shopcar = #{id_shopcar}
+		</if>
+		<if test="shopcar_uid!=null"><!--清空购物车用 -->
+			shopcar_uid = #{shopcar_uid}
+		</if>
+	</sql>
+
+	<select id="findShopcarByInfo" resultType="com.shop.pojo.entity.Shopcar" parameterType="com.shop.pojo.entity.Shopcar">
+		select * from shopcar
 		<where>
 			<include refid="queryfororder"></include>
 		</where>
 	</select>
 	
-	<update id="cancelOrder">
-		UPDATE orders set orders_states = 'over',orders_mid = #{mid} where id_orders = #{id}
+	<insert id="addItemsToShopcar" parameterType="com.shop.pojo.entity.Shopcar">
+		INSERT INTO shopcar VALUES (#{id_shopcar},#{shopcar_itemname},#{shopcar_itemprice},#{shopcar_itemnum},#{shopcar_adddate},
+		#{shopcar_uid},#{orders_id_orders})
+	</insert>
+	
+	<update id="changeShopcarInfo" parameterType="com.shop.pojo.entity.Shopcar">
+		UPDATE shopcar set shopcar_itemprice = #{shopcar.shopcar_itemprice},shopcar_itemnum = #{shopcar.shopcar_itemnum},
+		shopcar_adddate = #{shopcar.shopcar_adddate},orders_id_orders = #{shopcar.orders_id_orders} WHERE id_shopcar = #{shopcar.id_shopcar}
 	</update>
 
-	<update id="setUpOrder">
-		UPDATE orders set orders_states = 'ok',orders_mid = #{mid} where id_orders = #{id}
-	</update>
-	
-	<update id="changeOrderInfo" parameterType="com.shop.pojo.entity.Order">
-		UPDATE orders set orders_remark = #{order.orders_remark},orders_countprice = #{order.orders_countprice},
-		orders_mid = #{order.orders_mid},orders_date = #{order.orders_date} WHERE id_orders = #{order.id_orders}
-	</update>
+	<delete id="delShopcarInfo" parameterType="com.shop.pojo.entity.Shopcar">
+		DELETE shopcar WHERE
+		<include refid="delforshopcar"></include>
+	</delete>
 </mapper>
