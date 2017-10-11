@@ -1,6 +1,8 @@
 package com.shop.pojo.entity;
 import com.shop.pojo.generator.shopcar;
 
+import java.util.Date;
+
 public class Shopcar extends shopcar {
     private Integer id_shopcar;
 
@@ -10,7 +12,7 @@ public class Shopcar extends shopcar {
 
     private Integer shopcar_itemnum;
 
-    private Integer shopcar_adddate;
+    private Date shopcar_adddate;
 
     private Integer shopcar_uid;
 
@@ -48,11 +50,11 @@ public class Shopcar extends shopcar {
         this.shopcar_itemnum = shopcar_itemnum;
     }
 
-    public Integer getShopcar_adddate() {
+    public Date getShopcar_adddate() {
         return shopcar_adddate;
     }
 
-    public void setShopcar_adddate(Integer shopcar_adddate) {
+    public void setShopcar_adddate(Date shopcar_adddate) {
         this.shopcar_adddate = shopcar_adddate;
     }
 
@@ -75,7 +77,7 @@ public class Shopcar extends shopcar {
     public Shopcar() {
     }
 
-    public Shopcar(Integer id_shopcar, String shopcar_itemname, Integer shopcar_itemprice, Integer shopcar_itemnum, Integer shopcar_adddate, Integer shopcar_uid, Integer orders_id_orders) {
+    public Shopcar(Integer id_shopcar, String shopcar_itemname, Integer shopcar_itemprice, Integer shopcar_itemnum, Date shopcar_adddate, Integer shopcar_uid, Integer orders_id_orders) {
         this.id_shopcar = id_shopcar;
         this.shopcar_itemname = shopcar_itemname;
         this.shopcar_itemprice = shopcar_itemprice;
